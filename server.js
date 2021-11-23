@@ -37,7 +37,7 @@ const CanvasSchema = new mongoose.Schema({
     width: Number,
     height: Number,
     colorSpace: String
-}, )
+})
 
 const Canvas = mongoose.model("Canvas", CanvasSchema)
 
