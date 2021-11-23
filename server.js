@@ -32,11 +32,7 @@ mongoose.connection
 
 
 const CanvasSchema = new mongoose.Schema({
-    dataURL: String,
-    bitmap: [Number],
-    width: Number,
-    height: Number,
-    colorSpace: String
+    dataURL: String
 })
 
 const Canvas = mongoose.model("Canvas", CanvasSchema)
