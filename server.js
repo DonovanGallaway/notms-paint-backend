@@ -8,6 +8,7 @@ const mongoose = require('mongoose') // This can be changed to './database/conne
 const cors = require('cors')
 const app = express()
 const { PORT, DATABASE_URL } = process.env
+console.log(DATABASE_URL)
 
 /////////////////////////////////
 // Database Connection
@@ -35,7 +36,7 @@ const CanvasSchema = new mongoose.Schema({
     bitmap: [Number] 
 }, )
 
-const Canavs = mongoose.model("Canvas", CanvasSchema)
+const Canvas = mongoose.model("Canvas", CanvasSchema)
 
 
 
