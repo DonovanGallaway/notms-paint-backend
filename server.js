@@ -44,7 +44,8 @@ const Canvas = mongoose.model("Canvas", CanvasSchema)
 ////////////////////////////////
 app.use(cors()); // to prevent cors errors, open access to all origins
 app.use(morgan("dev")); // logging
-app.use(express.json()); // parse json bodies
+app.use(express.json({limit: '25mb'}));
+app.use(express.urlencoded({limit: '25mb'}));
 
 
 
@@ -109,6 +110,14 @@ app.delete("/canvas/:id", async (req, res) => {
     }
   });
 
+  // Boom Button (mass delete)
+  app.delete('/canvas/bigDelete/yep', async (req,res) => {
+    try {
+      res.json(await Canvas.deleteMany({}))
+    } catch (error){
+      res.status(400).json({error})
+    }
+  })
 
 /////////////////////////////////
 // Server Listener
